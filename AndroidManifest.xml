@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name="com.tudou.android.fw.activity.LogcatActivity"
-            android:label="framework/util/logcat activity" >
+            android:label="framework/Util/logcat activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,7 +52,7 @@
 
         <activity
             android:name="com.tudou.android.fw.activity.demo.sendreceiver.DemoSenderActivity"
-            android:label="framework/DemoSender" >
+            android:label="framework/SenderReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,7 +70,7 @@
         </activity>
         <activity
             android:name="com.tudou.android.fw.activity.demo.DemoCategoryActivity"
-            android:label="framework/DemoCategory" >
+            android:label="framework/CategoryDetail" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
