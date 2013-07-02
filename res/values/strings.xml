@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lib_share">share</string>
+    <string name="lib_save">save</string>
+    <string name="lib_app_name">Libproject</string>
+    <string name="lib_loading">loading…, &#8230;</string>
+    <string name="lib_load_error">load error</string>
+    <string name="lib_re_load">re-loading</string>
+
+</resources>

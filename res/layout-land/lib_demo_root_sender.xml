@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tudou.android.fw.page.layout.RootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.tudou.android.fw.activity.demo.sendreceiver.DemoSenderPage
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </com.tudou.android.fw.activity.demo.sendreceiver.DemoSenderPage>
+ 
+</com.tudou.android.fw.page.layout.RootLinearLayout>

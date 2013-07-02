@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Application Memory specified in android cdd.
+    	see http://source.android.com/compatibility/index.html
+    	in mega unit
+     -->
+    <integer name="lib_app_memory">32</integer>
+</resources>

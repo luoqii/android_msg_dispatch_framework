@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AllType">
+        <attr name="typeInteger" format="integer"></attr>
+        <attr name="typeFloat" format="float"></attr>
+        <attr name="typeBoolean" format="boolean"></attr>
+        <attr name="typeColor" format="color"></attr>
+        <attr name="typeDimension" format="dimension"></attr>
+        <attr name="typeString" format="string"></attr>
+        <attr name="typeReference" format="reference"></attr>
+        <attr name="typeFraction" format="fraction"></attr>
+        <attr name="typeAll" format="reference|integer|float|boolean|color|dimension|string|fraction"></attr>
+        <attr name="typeFlag">
+            <flag name="state_1" value="0x01" />
+            <flag name="state_2" value="0x02" />
+            <flag name="state_3" value="0x04" />
+            <flag name="state_4" value="0x08" />
+            <flag name="state_5" value="0x0A" />
+            <flag name="state_6" value="0x0C" />
+        </attr>
+        <attr name="typeEnum">
+            <enum name="normal" value="0" />
+            <enum name="sans" value="1" />
+            <enum name="serif" value="2" />
+            <enum name="monospace" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>

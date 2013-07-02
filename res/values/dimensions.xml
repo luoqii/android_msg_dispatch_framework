@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    
+<!-- textSize definition 
+     more see http://developer.android.com/design/style/typography.html
+ -->
+ 	<dimen name="text_size_micro">12sp</dimen>
+ 	<dimen name="text_size_small">14sp</dimen>
+ 	<dimen name="text_size_medium_min">16sp</dimen>
+ 	<dimen name="text_size_medium">18sp</dimen>
+ 	<dimen name="text_size_medium_plus">20sp</dimen>
+ 	<dimen name="text_size_large">22sp</dimen>
+ 	
+</resources>

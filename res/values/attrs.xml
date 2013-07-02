@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- attributes can be apply to all pages. -->
+    <declare-styleable name="Page">
+        <!--  layout for some page to show contents, must be an reference to layout res. -->
+        <attr name="pageLayout" format="reference" />
+    </declare-styleable>    
+    
+    <declare-styleable name="ViewPagerComponent">
+        <!-- must a array reference -->
+        <attr name="viewPagerSpec" format="reference" />
+        <attr name="viewPagerInitTabIndex" format="integer" />
+        <attr name="viewPagerOffScreenViews" format="integer" />
+<!--         <attr name="viewpagerType" format="integer"/> -->
+		<attr name="viewPagerLayout" format="reference"/>
+    </declare-styleable>
+</resources>

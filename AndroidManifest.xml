@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tudou.android.fw"
+    android:versionCode="1"
+    android:versionName="0.0.1" >
+
+    <uses-sdk android:minSdkVersion="4" />
+
+    <!-- log -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- lib project -->
+    <!-- for LogcatActivity -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:name="com.tudou.android.fw.DemoApplication"
+        android:debuggable="true"
+        android:label="@string/lib_app_name" >
+        <activity
+            android:name="com.tudou.android.fw.activity.FWApiDemos"
+            android:label="FrameworkApiDemos" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tudou.android.fw.activity.LogcatActivity"
+            android:label="framework/util/logcat activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tudou.android.fw.activity.PropertiesActivity"
+            android:label="properties"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <!--
+             <provider
+            android:name="com.tudou.android.fw.FileContentProvider"
+            android:authorities="com.tudou.doubao"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:multiprocess="false"
+            android:syncable="false" />
+        -->
+
+        <activity
+            android:name="com.tudou.android.fw.activity.demo.sendreceiver.DemoSenderActivity"
+            android:label="framework/DemoSender" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tudou.android.fw.activity.demo.sendreceiver.DemoReceiverActivity"
+            android:label="DemoReceiverActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tudou.android.fw.activity.demo.DemoCategoryActivity"
+            android:label="framework/DemoCategory" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tudou.android.fw.activity.demo.DemoDetailActivity"
+            android:label="DemoDetail" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

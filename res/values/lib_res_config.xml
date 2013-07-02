@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO how get this info in code. 
+         do NOT override this in other project(s).
+         bysong@tudou.com -->
+    <string name="lib_res_conf">unknown resource configuration, u should qualify it</string>
+    
+    <!-- Application Memory specified in android cdd.
+    	see http://source.android.com/compatibility/index.html
+    	in mega unit
+     -->
+    <integer name="lib_app_memory">16</integer>
+</resources>

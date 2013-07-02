@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- do NOT translate this strings. bysong@tudou.com -->
+<resources>
+    <!-- do NOT translate this strings. bysong@tudou.com -->
+    <string name="lib_gesture_debug">debug</string>
+    <!-- do NOT translate this strings. bysong@tudou.com -->
+    <string name="lib_gesture_log">log</string>
+    <!-- do NOT translate this strings. bysong@tudou.com -->
+    <string name="lib_gesture_close">close</string>
+</resources>
