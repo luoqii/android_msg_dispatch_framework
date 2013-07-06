@@ -18,7 +18,7 @@ import com.tudou.android.fw.model.cache.imagecache.IImageCache;
 import com.tudou.android.fw.model.cache.imagecache.IImageCache.ICacheSpec;
 import com.tudou.android.fw.model.cache.imagecache.MeasureCache;
 import com.tudou.android.fw.model.task.AbsTask;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -88,7 +88,7 @@ public class DefaultImageAmbassador implements IAmbassador {
                 try {                    
                     mCache.insert(spec, cache);
                 } catch (IOException e) {
-                    TudouLog.e(TAG, "IOException", e);
+                    Log.e(TAG, "IOException", e);
                 }
             }
 
@@ -124,7 +124,7 @@ public class DefaultImageAmbassador implements IAmbassador {
                         mExecutor.execute(new ImageTask(req, handler));
                     }
                 } catch (IOException e) {
-                    TudouLog.e(TAG, "IOException", e);
+                    Log.e(TAG, "IOException", e);
                 }
             }
         });
@@ -200,7 +200,7 @@ public class DefaultImageAmbassador implements IAmbassador {
                 String url = req.getPicUrl();
                 byte[] bytes = null;
                 if (LOG) {
-                    TudouLog.d(TAG, "url: " + url);
+                    Log.d(TAG, "url: " + url);
                 }            
                 bytes = getImage(url);      
                 
@@ -223,10 +223,10 @@ public class DefaultImageAmbassador implements IAmbassador {
                mHandler.sendResponseMessage(new ImageResponse(getReqest(), entity));
             } catch (IOException e) {
                 // FIXME notify ui this situation
-                TudouLog.e(TAG, "IOException", e);
+                Log.e(TAG, "IOException", e);
             } catch (IllegalStateException e) {
                 // FIXME notify ui this situation
-                TudouLog.e(TAG, "IllegalStateException", e); 
+                Log.e(TAG, "IllegalStateException", e); 
             }            
         }
 

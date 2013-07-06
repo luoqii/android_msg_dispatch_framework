@@ -10,7 +10,7 @@ import android.widget.ImageView.ScaleType;
 import com.example.android.bitmapfun.util.ImageCache;
 import com.example.android.bitmapfun.util.ImageCache.ImageCacheParams;
 import com.example.android.bitmapfun.util.ImageWorker;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 public class ImageWorkWrapper {
     private static final String TAG = ImageWorkWrapper.class.getSimpleName();
@@ -20,7 +20,7 @@ public class ImageWorkWrapper {
     private Context mContext;
 
     private ImageWorkWrapper(Context context, int maxLruSize, int defaultRes, boolean isSourceSite) {
-        TudouLog.d(TAG, "maxLruSize: " + maxLruSize);
+        Log.d(TAG, "maxLruSize: " + maxLruSize);
         ImageCacheParams cacheParams = new ImageCacheParams(
                 isSourceSite ? ImageCacheParams.ImageType.SOURCE_SITE
                         : ImageCacheParams.ImageType.THUMBNAIL);

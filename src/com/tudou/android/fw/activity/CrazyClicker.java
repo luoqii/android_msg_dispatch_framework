@@ -1,6 +1,6 @@
 package com.tudou.android.fw.activity;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 
 public class CrazyClicker {
@@ -19,7 +19,7 @@ public class CrazyClicker {
         mDiffThreshold = diffThreshold;
         
         if (DEBUG) {
-            TudouLog.d(TAG, "litmit: " + hitLimit + " diff: " + diffThreshold);
+            Log.d(TAG, "litmit: " + hitLimit + " diff: " + diffThreshold);
         }
     }
     
@@ -32,7 +32,7 @@ public class CrazyClicker {
             long diff = clickTime - mLastClickTime;
             
             if (DEBUG) {
-                TudouLog.d(TAG, "diff: " + diff + "\thit: " + mHit);            
+                Log.d(TAG, "diff: " + diff + "\thit: " + mHit);            
             }
             
             if (diff < mDiffThreshold) {

@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.tudou.android.fw.R;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 /**
  * if footview is visible to user, load more; if uer scroll to footview, load
@@ -68,7 +68,7 @@ public class AutoRefreshListView extends ListView {
     
     public void showLoading(boolean error) {
         if (mRemoved && !mAdded) {
-            TudouLog.d(TAG, "re-add footer view.");
+            Log.d(TAG, "re-add footer view.");
             
             addFooterView(mFooter);
 //            setAdapter(getAdapter());
@@ -81,7 +81,7 @@ public class AutoRefreshListView extends ListView {
     public void hideLoading() {
         mFooter.hideLoading();
         
-        TudouLog.d(TAG, "remove  footer view");
+        Log.d(TAG, "remove  footer view");
         mRemoved = true;
         mAdded = false;
         removeFooterView(mFooter);
@@ -136,7 +136,7 @@ public class AutoRefreshListView extends ListView {
         
         void hideLoading() {
             if (DEBUG) {
-                TudouLog.d(TAG, "hideLoading().");
+                Log.d(TAG, "hideLoading().");
             }
             
             // XXX can not work! i must remove this footer view to
@@ -146,7 +146,7 @@ public class AutoRefreshListView extends ListView {
         
         void showLoading(boolean error) {            
             if (DEBUG) {
-                TudouLog.d(TAG, "showLoading(error: " + error + ").");
+                Log.d(TAG, "showLoading(error: " + error + ").");
             }
             
             setVisibility(VISIBLE);

@@ -28,7 +28,7 @@ public class FileUtil {
                     file.createNewFile();
                     hasCreated = true;
                 } catch (IOException e) {
-                    TudouLog.e(TAG, "IOException", e);
+                    Log.e(TAG, "IOException", e);
                 }
             }
         } else {
@@ -36,7 +36,7 @@ public class FileUtil {
                 file.createNewFile();
                 hasCreated = true;
             } catch (IOException e) {
-                TudouLog.e(TAG, "IOException", e);
+                Log.e(TAG, "IOException", e);
             }
         }
 

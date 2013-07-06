@@ -11,7 +11,7 @@ import com.tudou.android.fw.activity.AbsPageActivity;
 import com.tudou.android.fw.activity.demo.DemoMsg;
 import com.tudou.android.fw.model.ambassador.IResponse;
 import com.tudou.android.fw.msgdispatch.IMsg;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 public class DemoReceiverActivity extends AbsPageActivity {
 
@@ -29,7 +29,7 @@ public class DemoReceiverActivity extends AbsPageActivity {
     private void parseIntent(Intent intent) {
         CharSequence text = intent.getCharSequenceExtra(EXTRA_TEXT);
         if (!TextUtils.isEmpty(text)) {
-            TudouLog.d(TAG, "extra text: " + text);
+            Log.d(TAG, "extra text: " + text);
             DemoMsg msg = new DemoMsg(IMsg.CATEGORY_LOCAL, DemoMsg.CODE_DEMO_SEND_TEXT, text);
             
             dispatchMsg(msg);

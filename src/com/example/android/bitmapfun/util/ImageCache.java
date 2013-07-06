@@ -22,7 +22,7 @@ import android.graphics.Bitmap.CompressFormat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.util.LruCache;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.File;
 
@@ -177,12 +177,12 @@ public class ImageCache {
         if (mMemoryCache != null) {
             final Bitmap memBitmap = mMemoryCache.get(data);
             if (DEBUG_MEASURE) {
-                TudouLog.d(TAG, "hitCount: " + mMemoryCache.hitCount() + "\tmissCount: "
+                Log.d(TAG, "hitCount: " + mMemoryCache.hitCount() + "\tmissCount: "
                         + mMemoryCache.missCount());
             }
             if (memBitmap != null) {
                 if (DEBUG) {
-                    TudouLog.d(TAG, "Memory cache hit");
+                    Log.d(TAG, "Memory cache hit");
                 }
                 return memBitmap;
             }

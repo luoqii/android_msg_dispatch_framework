@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.example.android.bitmapfun.util.ImageResizer;
 import com.example.android.bitmapfun.util.ImageWorker;
 import com.example.android.bitmapfun.util.Utils;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -36,7 +36,7 @@ public class TudouImageWorker extends ImageWorker {
         BufferedOutputStream out = null;
 
         if (DEBUG) {
-            TudouLog.d(TAG, "process bitmap. url: " + urlString);
+            Log.d(TAG, "process bitmap. url: " + urlString);
         }
         Bitmap bitmap = null;
         try {
@@ -57,7 +57,7 @@ public class TudouImageWorker extends ImageWorker {
 
         } catch (final IOException e) {// XXX final ??? bysong@tudou.com
             bitmap = null;
-            TudouLog.e(TAG, "IOException in downloadBitmap(" + urlString + ") - " + e);
+            Log.e(TAG, "IOException in downloadBitmap(" + urlString + ") - " + e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -66,12 +66,12 @@ public class TudouImageWorker extends ImageWorker {
                 try {
                     out.close();
                 } catch (final IOException e) {
-                    TudouLog.e(TAG, "IOException in downloadBitmap(" + urlString + ") - " + e);
+                    Log.e(TAG, "IOException in downloadBitmap(" + urlString + ") - " + e);
                 }
             }
         }
         if (DEBUG) {
-            TudouLog.d(TAG, "rcvd bitmap: " + bitmap + "(" + urlString + ")");
+            Log.d(TAG, "rcvd bitmap: " + bitmap + "(" + urlString + ")");
         }
         return bitmap;
     }

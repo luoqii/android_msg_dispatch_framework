@@ -2,7 +2,7 @@
 package com.tudou.android.fw.model.cache.imagecache;
 
 import com.tudou.android.fw.image.ImageWorkWrapper;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -36,7 +36,7 @@ public class ImageCache implements IImageCache {
                 try {
 					data = c.get(spec);
 				} catch (IOException e) {
-					TudouLog.e(TAG, "", e);
+					Log.e(TAG, "", e);
 				}
                 if (null != data) {
                     break;
@@ -55,7 +55,7 @@ public class ImageCache implements IImageCache {
                 try {
 					inserted = c.insert(spec, data);
 				} catch (IOException e) {
-					TudouLog.e(TAG, "", e);
+					Log.e(TAG, "", e);
 				}
                 if (inserted) {
                     break;

@@ -15,7 +15,7 @@ import android.text.format.DateFormat;
 
 import com.tudou.android.fw.util.DeviceUtil;
 import com.tudou.android.fw.util.FileUtil;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -108,7 +108,7 @@ abstract public class App extends Application {
             c.close();
         }
         
-        TudouLog.i(TAG, "bye worold.");
+        Log.i(TAG, "bye worold.");
         System.exit(0);
     }
 
@@ -127,7 +127,7 @@ abstract public class App extends Application {
     protected void npe() {
         String npe = null;
         if (npe.length() == 0) {
-            TudouLog.e(TAG, "dead code.");
+            Log.e(TAG, "dead code.");
         }
     }
 
@@ -169,12 +169,12 @@ abstract public class App extends Application {
                     pStream.println();
                     
                     ex.printStackTrace(pStream);    
-                    TudouLog.d(TAG, "fc file saved to: " + crashFile);
+                    Log.d(TAG, "fc file saved to: " + crashFile);
                     
                 } catch (FileNotFoundException e) {
-                    TudouLog.e(TAG, "FileNotFoundException", e);
+                    Log.e(TAG, "FileNotFoundException", e);
                 } catch (NameNotFoundException e) {
-                    TudouLog.e(TAG, "NameNotFoundException", e);
+                    Log.e(TAG, "NameNotFoundException", e);
                 }
               
               // do this at last.

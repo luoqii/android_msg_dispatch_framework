@@ -16,11 +16,11 @@ public class MockUtil {
      */
     static public void mockDelay(boolean delay, int sleepTime) {
         if (delay) {
-            TudouLog.i(TAG, "mock network delay.");
+            Log.i(TAG, "mock network delay.");
             try {
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
-                TudouLog.e(TAG, "InterruptedException", e); //ignore
+                Log.e(TAG, "InterruptedException", e); //ignore
             }
         }
     }
@@ -33,12 +33,12 @@ public class MockUtil {
      */
     static public void mockIOE(boolean ioe, int sleepTime) throws IOException {
         if (ioe) {
-            TudouLog.i(TAG, "mock network exception.");
+            Log.i(TAG, "mock network exception.");
             if (new Random().nextInt(100) < 50) { // exception rate
                 try {
                     Thread.sleep(sleepTime);
                 } catch (InterruptedException e) {
-                    TudouLog.e(TAG, "InterruptedException", e); //ignore
+                    Log.e(TAG, "InterruptedException", e); //ignore
                 }
 
                 throw new IOException("mock IOException.");

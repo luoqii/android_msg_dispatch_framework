@@ -15,7 +15,7 @@ public class PackageUtil {
             installed = pm
                     .getPackageInfo("com.adobe.flashplayer", 0) != null;
         } catch (NameNotFoundException e) {
-            TudouLog.e(TAG, "NameNotFoundException for package: " + packagename);
+            Log.e(TAG, "NameNotFoundException for package: " + packagename);
         }
         
         return installed;

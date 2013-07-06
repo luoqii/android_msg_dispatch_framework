@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.tudou.android.fw.application.App;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 import com.tudou.android.fw.widget.DebugView;
 import com.tudou.android.fw.widget.ViewServer;
 
@@ -39,9 +39,9 @@ public abstract class DebugActivity extends Activity {
         
         if (App.getInstance().isReleaseMode()) {
             ENABLE_VIEW_SERVER = false;
-            TudouLog.i(TAG, "disable ViewServer.");
+            Log.i(TAG, "disable ViewServer.");
         } else {
-            TudouLog.i(TAG, "enable ViewServer in non-release mode.");
+            Log.i(TAG, "enable ViewServer in non-release mode.");
         }
         
         if (ENABLE_VIEW_SERVER) {
@@ -60,7 +60,7 @@ public abstract class DebugActivity extends Activity {
         }
         
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onCreate(). #" + hashCode() + " savedInstanceState: " + savedInstanceState);
+            Log.d(getTag(), "onCreate(). #" + hashCode() + " savedInstanceState: " + savedInstanceState);
         }
     }
     
@@ -92,7 +92,7 @@ public abstract class DebugActivity extends Activity {
         super.onResume();
         
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onResume().");
+            Log.d(getTag(), "onResume().");
         }
         
         if (ENABLE_VIEW_SERVER) {
@@ -104,7 +104,7 @@ public abstract class DebugActivity extends Activity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onNewIntent(). intent: " + intent);
+            Log.d(getTag(), "onNewIntent(). intent: " + intent);
         }
     }
 
@@ -112,7 +112,7 @@ public abstract class DebugActivity extends Activity {
     protected void onRestart() {
         super.onRestart();
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onRestart().");
+            Log.d(getTag(), "onRestart().");
         }
     }
 
@@ -120,7 +120,7 @@ public abstract class DebugActivity extends Activity {
     protected void onStart() {
         super.onStart();
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onStart().");
+            Log.d(getTag(), "onStart().");
         }
 
     }
@@ -129,7 +129,7 @@ public abstract class DebugActivity extends Activity {
     protected void onPostResume() {
         super.onPostResume();
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onPostResume().");
+            Log.d(getTag(), "onPostResume().");
         }
     }
 
@@ -137,7 +137,7 @@ public abstract class DebugActivity extends Activity {
     protected void onPause() {
         super.onPause();
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onPause().");
+            Log.d(getTag(), "onPause().");
         }
     }
 
@@ -145,7 +145,7 @@ public abstract class DebugActivity extends Activity {
     protected void onStop() {
         super.onStop();
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onStop().");
+            Log.d(getTag(), "onStop().");
         }
     }
     
@@ -154,7 +154,7 @@ public abstract class DebugActivity extends Activity {
         super.onDestroy(); 
         
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onDestroy().");
+            Log.d(getTag(), "onDestroy().");
         }       
         
         if (ENABLE_VIEW_SERVER) {
@@ -190,7 +190,7 @@ public abstract class DebugActivity extends Activity {
     @Override
     public Object onRetainNonConfigurationInstance() {
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onRetainNonConfigurationInstance().");
+            Log.d(getTag(), "onRetainNonConfigurationInstance().");
         }
         return super.onRetainNonConfigurationInstance();
     }
@@ -199,7 +199,7 @@ public abstract class DebugActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (DEBUG_LIFE_CYCLE) {
-            TudouLog.d(getTag(), "onSaveInstanceState(). outState: " + outState);
+            Log.d(getTag(), "onSaveInstanceState(). outState: " + outState);
         }
     }
 }

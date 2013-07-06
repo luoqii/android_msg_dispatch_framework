@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import com.tudou.android.fw.model.ambassador.IResponse;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 public class AsyncMsgDispatcher extends AbsMsgDispatcher {
     private static final String TAG = AsyncMsgDispatcher.class.getSimpleName();
@@ -42,12 +42,12 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
     public boolean rootDispatch(RootMsgHandler root, IMsg msg, int direction) {
         boolean queued = mWorkThreadHandler.post(new RootDispatchRunner(root, msg, direction));
         if (DEBUG_UNQUEUED_MSG && !queued) {
-            TudouLog.w(TAG, "KO can not queue root dispatch work. root: "
+            Log.w(TAG, "KO can not queue root dispatch work. root: "
                     + root);
         }
 
         if (DEBUG_QUEUED_MSG && queued) {
-            TudouLog.d(TAG, "OK queue root dispatch work. root: " + root);
+            Log.d(TAG, "OK queue root dispatch work. root: " + root);
         }
         return true;
     }
@@ -67,12 +67,12 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
                             MsgHandler.PARENT_2_CHILD));
 
                     if (DEBUG_UNQUEUED_MSG && !queued) {
-                        TudouLog.w(TAG, "KO can not queue msgHandler Runner on view: "
+                        Log.w(TAG, "KO can not queue msgHandler Runner on view: "
                                 + child + "\tmsg: " + msg);
                     }
                     
                     if (DEBUG_QUEUED_MSG && queued) {
-                        TudouLog.d(TAG, "OK queue msgHandler Runner on view: "
+                        Log.d(TAG, "OK queue msgHandler Runner on view: "
                                 + child + "\tmsg: " + msg);
                     }
                 }
@@ -100,7 +100,7 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
 
         ViewParent parent = sender.getParent();
         if (null == parent) {
-            TudouLog.w(TAG, "can not handle, sender's parent is null. sender: "
+            Log.w(TAG, "can not handle, sender's parent is null. sender: "
                     + sender);
         } else if (parent instanceof ViewGroup
                 &&
@@ -114,8 +114,8 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
                     +
                              "@MsgHandler. viewgroup: " + parent;
             if (false) {
-                TudouLog.w(TAG, "can NOT handle msg. are you sure???");
-                TudouLog.w(TAG, message);
+                Log.w(TAG, "can NOT handle msg. are you sure???");
+                Log.w(TAG, message);
             }
         }
 
@@ -146,7 +146,7 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
                             + msg;
                     
                     canHandled = true; // do not dispatch more.
-                    TudouLog.w(TAG, detailMessage);
+                    Log.w(TAG, detailMessage);
                 }
             } else { // parent2child local
                 canHandled = canHandle(group, msg);
@@ -154,7 +154,7 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
                     dispatch(group, msg);
                 } else {
                     canHandled = true;
-                    TudouLog.e(TAG, "can not handle this msg!!!. parent2child and local. msg: "
+                    Log.e(TAG, "can not handle this msg!!!. parent2child and local. msg: "
                             + msg);
                 }
             }
@@ -239,7 +239,7 @@ public class AsyncMsgDispatcher extends AbsMsgDispatcher {
                     || (handled && DEBUG_CAN_HANDLE_MSG))
                     && (!filter(mMsg)
                     )) {
-                TudouLog.d(TAG, "handled: " + handled + "\tview: "
+                Log.d(TAG, "handled: " + handled + "\tview: "
                         + mMsgHandler
                         + "\tmsg: " + mMsg);
             }

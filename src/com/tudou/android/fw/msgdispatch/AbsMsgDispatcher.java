@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 public abstract class AbsMsgDispatcher implements MsgDispatcherPolicy {
     // global debug option.
@@ -56,7 +56,7 @@ public abstract class AbsMsgDispatcher implements MsgDispatcherPolicy {
                              || (canHandledByAnyChild && DEBUG_CAN_HANDLE_MSG))
                         && (!filter(msg)
                           )) {
-                    TudouLog.d(getTag(), "canHandled: " + canHandledByAnyChild + "\tview: "
+                    Log.d(getTag(), "canHandled: " + canHandledByAnyChild + "\tview: "
                             + child
                             + "\tmsg: " + msg);
                 }
@@ -67,7 +67,7 @@ public abstract class AbsMsgDispatcher implements MsgDispatcherPolicy {
                 canHandled = canHandle((ViewGroup) child, msg) || canHandled;
             } else {
                 if (DEBUT_MSG_DISPATCH) {
-                    TudouLog.w(getTag(), "can not determine whether canHandle, ignore. view: "
+                    Log.w(getTag(), "can not determine whether canHandle, ignore. view: "
                             + child);
                 }
             }

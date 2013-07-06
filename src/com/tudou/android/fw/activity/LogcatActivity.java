@@ -1,6 +1,16 @@
 
 package com.tudou.android.fw.activity;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
 import android.Manifest.permission;
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +30,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AbsListView;
@@ -29,7 +38,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -40,17 +48,7 @@ import com.tudou.android.fw.R;
 import com.tudou.android.fw.activity.LogcatActivity.LogcatProcess.OnLogListener;
 import com.tudou.android.fw.application.App;
 import com.tudou.android.fw.application.FileHierachySpec;
-import com.tudou.android.fw.util.TudouLog;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.sql.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+import com.tudou.android.fw.util.Log;
 
 /**
  * android logcat application output log viewer.
@@ -223,7 +221,7 @@ public class LogcatActivity extends Activity {
 
         Parcelable p = intent.getParcelableExtra(EXTRA_FILTER_SPEC);
         if (null == p) {
-            TudouLog.w(TAG, "no filter in intent, ignore.");
+            Log.w(TAG, "no filter in intent, ignore.");
             return ;
         }
         
@@ -293,17 +291,17 @@ public class LogcatActivity extends Activity {
                     saved = true;
                 }
             } catch (IOException e) {
-                TudouLog.d(TAG, "IOException", e);
+                Log.d(TAG, "IOException", e);
             }
         }
         
-        String message = "";
-        if (saved) {
-            message = "log has saved at dir: " + logFile.getParent();
-        } else {
-            message = "error!!!";
-        }
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+		String message = "";
+		if (saved) {
+			message = "log has saved at dir: " + logFile.getParent();
+		} else {
+			message = "error!!!";
+		}
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
     
     private String collectLog() {
@@ -319,12 +317,19 @@ public class LogcatActivity extends Activity {
 
     private void performShare() {
         
-        Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("text/plain");
-        share.putExtra(Intent.EXTRA_SUBJECT, "log for " + App.getInstance().getLogTag());
-        share.putExtra(Intent.EXTRA_TEXT, collectLog());
-        
-        startActivity(Intent.createChooser(share, "send log by"));
+		String target = "libproject";
+		try {
+			target = App.getInstance().getLogTag();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Intent share = new Intent(Intent.ACTION_SEND);
+		share.setType("text/plain");
+		share.putExtra(Intent.EXTRA_SUBJECT, "log for " + target);
+		share.putExtra(Intent.EXTRA_TEXT, collectLog());
+
+		startActivity(Intent.createChooser(share, "send log by"));
     }
 
     @Override
@@ -598,7 +603,7 @@ public class LogcatActivity extends Activity {
                         }
                     } catch (Exception e) {
                         // ignore this, it's safe.
-                        TudouLog.e(TAG, "KO. command: " + command, e);
+                        Log.e(TAG, "KO. command: " + command, e);
                     } finally {
                         if (null != mProcess) {
                             mProcess.destroy();
@@ -742,7 +747,7 @@ public class LogcatActivity extends Activity {
                     }
                 }
             } catch (PatternSyntaxException e) {
-                TudouLog.e(TAG, "PatternSyntaxException", e);
+                Log.e(TAG, "PatternSyntaxException", e);
                 filter = false;
             }
 

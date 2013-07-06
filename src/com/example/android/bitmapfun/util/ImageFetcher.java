@@ -22,7 +22,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -80,7 +80,7 @@ public class ImageFetcher extends ImageResizer {
         final NetworkInfo networkInfo = cm.getActiveNetworkInfo();
         if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
             Toast.makeText(context, "No network connection found.", Toast.LENGTH_LONG).show();
-            TudouLog.e(TAG, "checkConnection - no connection found");
+            Log.e(TAG, "checkConnection - no connection found");
         }
     }
 
@@ -93,7 +93,7 @@ public class ImageFetcher extends ImageResizer {
      */
     private Bitmap processBitmap(String data) {
         if (DEBUG) {
-            TudouLog.d(TAG, "processBitmap - " + data);
+            Log.d(TAG, "processBitmap - " + data);
         }
 
         // Download a bitmap, write it to a file
@@ -130,13 +130,13 @@ public class ImageFetcher extends ImageResizer {
 
         if (cache.containsKey(urlString)) {
             if (DEBUG) {
-                TudouLog.d(TAG, "downloadBitmap - found in http cache - " + urlString);
+                Log.d(TAG, "downloadBitmap - found in http cache - " + urlString);
             }
             return cacheFile;
         }
 
         if (DEBUG) {
-            TudouLog.d(TAG, "downloadBitmap - downloading - " + urlString);
+            Log.d(TAG, "downloadBitmap - downloading - " + urlString);
         }
 
         Utils.disableConnectionReuseIfNecessary();
@@ -158,7 +158,7 @@ public class ImageFetcher extends ImageResizer {
             return cacheFile;
 
         } catch (final IOException e) {
-            TudouLog.e(TAG, "Error in downloadBitmap - " + e);
+            Log.e(TAG, "Error in downloadBitmap - " + e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -167,7 +167,7 @@ public class ImageFetcher extends ImageResizer {
                 try {
                     out.close();
                 } catch (final IOException e) {
-                    TudouLog.e(TAG, "Error in downloadBitmap - " + e);
+                    Log.e(TAG, "Error in downloadBitmap - " + e);
                 }
             }
         }

@@ -18,7 +18,7 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 import com.tudou.android.fw.msgdispatch.annotation.MsgHandler;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -64,11 +64,11 @@ public class AnnotationScrollViewLayout extends ScrollView {
             while (null != r) {
                 if (!post(r)) {
                     if (DEBUG_POST) {
-                        TudouLog.e(TAG, "KO post queued runnable failed.");
+                        Log.e(TAG, "KO post queued runnable failed.");
                     }
                 } else {
                     if (DEBUG_POST) {
-                        TudouLog.e(TAG, "OK post queued runnable successed.");
+                        Log.e(TAG, "OK post queued runnable successed.");
                     }
                 }
                 r = mQueue.poll();
@@ -88,24 +88,24 @@ public class AnnotationScrollViewLayout extends ScrollView {
         if (mAttached.get()) {
             if (super.post(action)) {
                 if (DEBUG_POST) {
-                    TudouLog.e(TAG, "OK super post successed.");
+                    Log.e(TAG, "OK super post successed.");
                 }
                 return true;
             } else {
                 if (DEBUG_POST) {
-                    TudouLog.e(TAG, "KO super post failed.");
+                    Log.e(TAG, "KO super post failed.");
                 }
                 return false;
             }
         } else {
             if (!mQueue.add(action)) {
                 if (DEBUG_POST) {
-                    TudouLog.e(TAG, "OK add action failed.");
+                    Log.e(TAG, "OK add action failed.");
                 }
                 return true;
             } else {
                 if (DEBUG_POST) {
-                    TudouLog.e(TAG, "KO add action successed.");
+                    Log.e(TAG, "KO add action successed.");
                 }
                 return false;
             }

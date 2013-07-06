@@ -29,7 +29,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.lang.ref.WeakReference;
 
@@ -99,7 +99,7 @@ public abstract class ImageWorker {
 
         if (bitmap != null) {
             if (DEBUG) {
-                TudouLog.e(TAG, "find image in cache.");
+                Log.e(TAG, "find image in cache.");
             }
             // Bitmap found in memory cache
             imageView.setScaleType(ScaleType.FIT_XY);
@@ -117,7 +117,7 @@ public abstract class ImageWorker {
             try {
                 task.execute(data, imageView);
             } catch (Exception e) {
-                TudouLog.e(TAG, "Exception", e);// ignore this, safely.
+                Log.e(TAG, "Exception", e);// ignore this, safely.
             }
         }
     }
@@ -150,7 +150,7 @@ public abstract class ImageWorker {
 
         if (bitmap != null) {
             if (DEBUG) {
-                TudouLog.e(TAG, "find image in cache.");
+                Log.e(TAG, "find image in cache.");
             }
             // Bitmap found in memory cache
             imageView.setScaleType(ScaleType.FIT_XY);
@@ -163,7 +163,7 @@ public abstract class ImageWorker {
             try {
                 task.execute(data, imageView);
             } catch (Exception e) {
-                TudouLog.e(TAG, "Exception", e);// ignore this, safely.
+                Log.e(TAG, "Exception", e);// ignore this, safely.
             }
         }
     }
@@ -258,7 +258,7 @@ public abstract class ImageWorker {
             bitmapWorkerTask.cancel(true);
             if (DEBUG) {
                 final Object bitmapData = bitmapWorkerTask.data;
-                TudouLog.d(TAG, "cancelWork - cancelled work for " + bitmapData);
+                Log.d(TAG, "cancelWork - cancelled work for " + bitmapData);
             }
         }
     }
@@ -276,7 +276,7 @@ public abstract class ImageWorker {
             if (bitmapData == null || !bitmapData.equals(data)) {
                 bitmapWorkerTask.cancel(true);
                 if (DEBUG) {
-                    TudouLog.d(TAG, "cancelPotentialWork - cancelled work for "
+                    Log.d(TAG, "cancelPotentialWork - cancelled work for "
                             + data);
                 }
             } else {

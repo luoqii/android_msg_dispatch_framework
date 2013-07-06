@@ -1,6 +1,6 @@
 package com.tudou.android.fw.model.cache.imagecache;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.IOException;
 
@@ -30,7 +30,7 @@ public class MeasureCache implements IImageCache {
         mMethodGetCalledTime++;
         mMethodGetDuration += diff;
         
-        TudouLog.d(TAG, mCacheName + "\t:average elapse time in get(): " + (mMethodGetDuration / mMethodGetCalledTime));
+        Log.d(TAG, mCacheName + "\t:average elapse time in get(): " + (mMethodGetDuration / mMethodGetCalledTime));
         
         return data;
     }
@@ -44,7 +44,7 @@ public class MeasureCache implements IImageCache {
         mMethodInsertCalledTime++;
         mMethodInsertDuration += diff;
         
-        TudouLog.d(TAG, mCacheName + "\t:average elapse time in insert(): " + (mMethodInsertDuration / mMethodInsertCalledTime));
+        Log.d(TAG, mCacheName + "\t:average elapse time in insert(): " + (mMethodInsertDuration / mMethodInsertCalledTime));
         
         return insert;
     }
@@ -58,7 +58,7 @@ public class MeasureCache implements IImageCache {
         mMethodHasCalledTime++;
         mMethodHasDuration += diff;
         
-        TudouLog.d(TAG, mCacheName + "\t:average elapse time in insert(): " + (mMethodHasDuration / mMethodHasCalledTime));
+        Log.d(TAG, mCacheName + "\t:average elapse time in insert(): " + (mMethodHasDuration / mMethodHasCalledTime));
         
         return has;
     }

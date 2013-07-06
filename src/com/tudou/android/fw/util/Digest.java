@@ -14,7 +14,7 @@ public class Digest {
         try {
             digester = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
-            TudouLog.e(TAG, "NoSuchAlgorithmException", e);
+            Log.e(TAG, "NoSuchAlgorithmException", e);
         }
     }
     
@@ -31,7 +31,7 @@ public class Digest {
                 digest += Integer.toHexString(b & 0xFF);
             }
         } catch (UnsupportedEncodingException e) {
-            TudouLog.e(TAG, "UnsupportedEncodingException", e);
+            Log.e(TAG, "UnsupportedEncodingException", e);
         }
         
         return digest;

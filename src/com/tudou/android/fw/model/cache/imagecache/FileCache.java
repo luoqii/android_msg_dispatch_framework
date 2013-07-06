@@ -1,7 +1,7 @@
 
 package com.tudou.android.fw.model.cache.imagecache;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -42,7 +42,7 @@ public class FileCache implements IImageCache {
         if (!destFile.exists()) {
             if (!create(destFile)){
                 
-                TudouLog.w(TAG, "create file failed. file: " + destFile);
+                Log.w(TAG, "create file failed. file: " + destFile);
                 return false;
             }
         }

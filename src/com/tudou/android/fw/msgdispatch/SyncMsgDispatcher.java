@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 /**
  * Sync impl of {@link MsgDispatcherPolicy}
@@ -43,7 +43,7 @@ public class SyncMsgDispatcher extends AbsMsgDispatcher {
 
         ViewParent parent = sender.getParent();
         if (null == parent) {
-            TudouLog.w(TAG, "can not handle, sender's parent is null. sender: " + sender.getClass().getSimpleName());
+            Log.w(TAG, "can not handle, sender's parent is null. sender: " + sender.getClass().getSimpleName());
         } else if (parent instanceof ViewGroup
                 &&
                 (parent.getClass().isAnnotationPresent(
@@ -56,8 +56,8 @@ public class SyncMsgDispatcher extends AbsMsgDispatcher {
                     +
                              "@MsgHandler. viewgroup: " + parent.getClass().getSimpleName();
             if (true) {
-                TudouLog.w(getTag(), "can NOT handle msg. are you sure???");
-                TudouLog.w(getTag(), message);
+                Log.w(getTag(), "can NOT handle msg. are you sure???");
+                Log.w(getTag(), message);
             }
         }
 
@@ -103,7 +103,7 @@ public class SyncMsgDispatcher extends AbsMsgDispatcher {
                     needHandle = false;
                     detailMessage = "RCV a msg which we have triggerred, but we can NOT handle it. msg: "
                             + msg;
-                    TudouLog.w(TAG, detailMessage);
+                    Log.w(TAG, detailMessage);
                 }
             } else {                                           // parent2child local
                 if (canHandled) {                              // yes, we can.
@@ -147,7 +147,7 @@ public class SyncMsgDispatcher extends AbsMsgDispatcher {
                              || !filter(msg))) {
                     // ---------------------| ALIGN to this line
                     // ---------------------+++++++
-                    TudouLog.d(TAG, "handled: " + handledByAnyChild + "\tview: "
+                    Log.d(TAG, "handled: " + handledByAnyChild + "\tview: "
                             + child.getClass().getSimpleName()
                             + "\tmsg: " + msg);
                 }

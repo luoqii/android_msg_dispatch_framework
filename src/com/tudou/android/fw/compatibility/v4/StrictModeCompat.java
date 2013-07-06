@@ -1,7 +1,7 @@
 
 package com.tudou.android.fw.compatibility.v4;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -47,7 +47,7 @@ public class StrictModeCompat {
 			setThreadPolicyMethod.invoke(strictModeClass, threadPolicyObject);
 		} catch (Exception ex) {
 		    // just log this.
-			TudouLog.w(TAG , "Exception StrictModeCompat", ex);
+			Log.w(TAG , "Exception StrictModeCompat", ex);
 		}
     }
 }

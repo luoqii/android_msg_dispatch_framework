@@ -24,7 +24,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 /**
  * A simple subclass of {@link ImageWorker} that resizes images from resources
@@ -92,7 +92,7 @@ public class ImageResizer extends ImageWorker {
      */
     private Bitmap processBitmap(int resId) {
         if (DEBUG) {
-            TudouLog.d(TAG, "processBitmap - " + resId);
+            Log.d(TAG, "processBitmap - " + resId);
         }
         return decodeSampledBitmapFromResource(mContext.getResources(), resId, mImageWidth,
                 mImageHeight);

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -52,11 +52,11 @@ public abstract class BaseComponent extends FrameLayout {
             while (null != r) {
                 if (!post(r)) {
                     if (DEBUG_POST) {
-                        TudouLog.e(getLogTag(), "KO post queued runnable failed.");
+                        Log.e(getLogTag(), "KO post queued runnable failed.");
                     }
                 } else {
                     if (DEBUG_POST) {
-                        TudouLog.e(getLogTag(), "OK post queued runnable successed.");
+                        Log.e(getLogTag(), "OK post queued runnable successed.");
                     }
                 }
                 r = mQueue.poll();
@@ -76,24 +76,24 @@ public abstract class BaseComponent extends FrameLayout {
         if (mAttached.get()) {
             if (super.post(action)) {
                 if (DEBUG_POST) {
-                    TudouLog.e(getLogTag(), "OK super post successed.");
+                    Log.e(getLogTag(), "OK super post successed.");
                 }
                 return true;
             } else {
                 if (DEBUG_POST) {
-                    TudouLog.e(getLogTag(), "KO super post failed.");
+                    Log.e(getLogTag(), "KO super post failed.");
                 }
                 return false;
             }
         } else {
             if (!mQueue.add(action)) {
                 if (DEBUG_POST) {
-                    TudouLog.e(getLogTag(), "OK add action failed.");
+                    Log.e(getLogTag(), "OK add action failed.");
                 }
                 return true;
             } else {
                 if (DEBUG_POST) {
-                    TudouLog.e(getLogTag(), "KO add action successed.");
+                    Log.e(getLogTag(), "KO add action successed.");
                 }
                 return false;
             }

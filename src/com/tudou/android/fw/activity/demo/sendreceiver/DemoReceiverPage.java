@@ -11,7 +11,7 @@ import com.tudou.android.fw.activity.demo.DemoMsg;
 import com.tudou.android.fw.msgdispatch.IMsg;
 import com.tudou.android.fw.msgdispatch.MsgHandler;
 import com.tudou.android.fw.page.BaseComponent;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 /**
  * @author bysong
@@ -59,13 +59,13 @@ public class DemoReceiverPage extends BaseComponent implements MsgHandler {
                 :false
                     ;        
 
-        TudouLog.d(TAG, "canHandle: " + canHandle + " msg: " + msg);
+        Log.d(TAG, "canHandle: " + canHandle + " msg: " + msg);
         return canHandle;
     }
 
     @Override
     public boolean handle(IMsg msg, int direction) {
-        TudouLog.d(TAG, "handle msg: " + msg);
+        Log.d(TAG, "handle msg: " + msg);
         boolean handled = false;
         int code = msg.getCode();
         int category = msg.getCategory();

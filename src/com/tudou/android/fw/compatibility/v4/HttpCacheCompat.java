@@ -1,6 +1,6 @@
 package com.tudou.android.fw.compatibility.v4;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.File;
 
@@ -20,7 +20,7 @@ public class HttpCacheCompat {
             .getMethod("install", File.class, long.class)
             .invoke(null, httpCacheDir, httpCacheSize);
         } catch (Exception httpResponseCacheNotAvailable) {
-            TudouLog.e(TAG, "HTTP response cache is unavailable.");
+            Log.e(TAG, "HTTP response cache is unavailable.");
         }
     }
 }

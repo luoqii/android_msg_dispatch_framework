@@ -21,7 +21,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -122,9 +122,9 @@ public class DiskLruCache {
                         flushCache();
                     }
                 } catch (final FileNotFoundException e) {
-                    TudouLog.e(TAG, "Error in put: " + e.getMessage());
+                    Log.e(TAG, "Error in put: " + e.getMessage());
                 } catch (final IOException e) {
-                    TudouLog.e(TAG, "Error in put: " + e.getMessage());
+                    Log.e(TAG, "Error in put: " + e.getMessage());
                 }
             }
         }
@@ -164,7 +164,7 @@ public class DiskLruCache {
             cacheByteSize -= eldestFileSize;
             count++;
             if (DEBUG) {
-                TudouLog.d(TAG, "flushCache - Removed cache file, " + eldestFile + ", "
+                Log.d(TAG, "flushCache - Removed cache file, " + eldestFile + ", "
                         + eldestFileSize);
             }
         }
@@ -181,7 +181,7 @@ public class DiskLruCache {
             final String file = mLinkedHashMap.get(key);
             if (file != null) {
                 if (DEBUG) {
-                    TudouLog.d(TAG, "Disk cache hit");
+                    Log.d(TAG, "Disk cache hit");
                 }
                 return BitmapFactory.decodeFile(file);
             } else {
@@ -189,7 +189,7 @@ public class DiskLruCache {
                 if (new File(existingFile).exists()) {
                     put(key, existingFile);
                     if (DEBUG) {
-                        TudouLog.d(TAG, "Disk cache hit (existing file)");
+                        Log.d(TAG, "Disk cache hit (existing file)");
                     }
                     return BitmapFactory.decodeFile(existingFile);
                 }
@@ -287,7 +287,7 @@ public class DiskLruCache {
             return cacheDir.getAbsolutePath() + File.separator +
                     CACHE_FILENAME_PREFIX + URLEncoder.encode(key.replace("*", ""), "UTF-8");
         } catch (final UnsupportedEncodingException e) {
-            TudouLog.e(TAG, "createFilePath - " + e);
+            Log.e(TAG, "createFilePath - " + e);
         }
 
         return null;

@@ -32,7 +32,7 @@ import com.tudou.android.fw.model.ambassador.IRequest;
 import com.tudou.android.fw.model.ambassador.IResponse;
 import com.tudou.android.fw.page.layout.AnnotaionGestureOverlayView;
 import com.tudou.android.fw.util.DisplayUtil;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 import com.tudou.android.fw.util.WindowUtil;
 
 import java.util.ArrayList;
@@ -108,7 +108,7 @@ public abstract class TudouActivity extends DebugActivity
         if (DEBUG_RES_CONFIG && !mApplication.isReleaseMode()) {
             DisplayMetrics dm = this.getResources().getDisplayMetrics();
             // TODO is there a better solution for this??? bysong@tudou.com
-            TudouLog.d(getTag(),
+            Log.d(getTag(),
                     "current res conf: " + getResources().getString(R.string.lib_res_conf)
                             + ",resolution:" + dm.widthPixels + "X" + dm.heightPixels
                             + ",physical size:" + DisplayUtil.getScreenSize(this));
@@ -130,7 +130,7 @@ public abstract class TudouActivity extends DebugActivity
 
         mGestureLib = GestureLibraries.fromRawResource(this, R.raw.gestures);
         if (!mGestureLib.load()) {
-            TudouLog.w(TAG, "can NOT load gesture lib.");
+            Log.w(TAG, "can NOT load gesture lib.");
         }
 
         injectOverlay();
@@ -153,12 +153,12 @@ public abstract class TudouActivity extends DebugActivity
 
         if (predictions.size() > 0) {
             if (DEBUG_GESTURE) {
-                TudouLog.d(TAG, "gesture size: " + predictions.size());
+                Log.d(TAG, "gesture size: " + predictions.size());
             }
             Prediction prediction = predictions.get(0);
 
             if (DEBUG_GESTURE) {
-                TudouLog.d(TAG, "gesture score: " + prediction.score);
+                Log.d(TAG, "gesture score: " + prediction.score);
             }
             if (prediction.score > GESTURE_SCORE_THRESHOLD) {
                 String name = prediction.name;
@@ -308,7 +308,7 @@ public abstract class TudouActivity extends DebugActivity
 
     protected void sendRequest(IRequest req) {
         if (LOG) {
-            TudouLog.d(getTag(), "SEND  request. " + "\trequest: " + req);
+            Log.d(getTag(), "SEND  request. " + "\trequest: " + req);
         }
 
         mExpectedRes.put(req.getId(), true);
@@ -332,14 +332,14 @@ public abstract class TudouActivity extends DebugActivity
 
         if (Boolean.TRUE == expected) {
             if (LOG) {
-                TudouLog.d(getTag(), "RCV response. " + "\tresponse: "
+                Log.d(getTag(), "RCV response. " + "\tresponse: "
                         + res);
             }
         }
 
         if (DEBUG_RCV_UNWANTED_RESPONSE) {
             if (Boolean.TRUE != expected) {
-                TudouLog.w(
+                Log.w(
                         getTag(),
                         "RCV response which we have NOT triggered. do you unRegisterCallback it? response: "
                                 + res);

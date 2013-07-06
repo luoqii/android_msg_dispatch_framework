@@ -4,7 +4,7 @@ import com.tudou.android.fw.model.ambassador.IAmbassador;
 import com.tudou.android.fw.model.ambassador.IHandler;
 import com.tudou.android.fw.model.ambassador.IRequest;
 import com.tudou.android.fw.model.task.TaskFactory;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -32,6 +32,6 @@ public class DefaultAmbassador implements IAmbassador {
 
 	@Override
 	public void unScheduleRequest(long schduleId) {
-	    TudouLog.w(TAG, "unScheduleRequest() not impl.");
+	    Log.w(TAG, "unScheduleRequest() not impl.");
 	}
 }

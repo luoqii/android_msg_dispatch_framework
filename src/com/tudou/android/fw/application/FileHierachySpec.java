@@ -1,5 +1,7 @@
 package com.tudou.android.fw.application;
 
+import android.os.Environment;
+
 /**
  * specify file hierachy in external(SD Card)/internal sotrage.
  * 
@@ -14,10 +16,11 @@ public class FileHierachySpec {
     private static FileHierachySpec sInstance;
     
     private String mExtDirPath;
-
-    private Object absolutePath;
-
     private String mExtCachePath;
+    
+    private FileHierachySpec() {
+    	mExtDirPath = Environment.getExternalStorageDirectory().toString();
+    }
 
     public static FileHierachySpec getInstance() {
         if (sInstance == null) {
@@ -41,8 +44,8 @@ public class FileHierachySpec {
         mExtDirPath = path;
     }
     
-    public void setExtCacheDirPath(String absolutePath) {
-        mExtCachePath = absolutePath;
+    public void setExtCacheDirPath(String cachePath) {
+        mExtCachePath = cachePath;
     }
     
     public String getExtCacheDirPath() {

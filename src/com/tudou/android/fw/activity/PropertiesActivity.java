@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.tudou.android.fw.util.ToastUtil;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -72,11 +72,11 @@ public class PropertiesActivity extends DebugActivity {
         mFileName = intent.getStringExtra(EXTRA_PROPERTY_FILE);
         mTemplate = intent.getStringExtra(EXTRA_TEMPLATE);
         
-        TudouLog.e(TAG, "properties file: " + mFileName);
+        Log.e(TAG, "properties file: " + mFileName);
         
         if (TextUtils.isEmpty(mFileName)) {
             mFileName = getFileStreamPath(DEFAULT_PROPERTY_FILE).toString();
-            TudouLog.w(TAG, "no property file. use default: " +  mFileName);
+            Log.w(TAG, "no property file. use default: " +  mFileName);
         }
     }
     
@@ -105,9 +105,9 @@ public class PropertiesActivity extends DebugActivity {
                 content += e.getKey() + " = " + e.getValue() + "\n";
             }
         } catch (FileNotFoundException e) {
-            TudouLog.e(TAG, "FileNotFoundException", e);
+            Log.e(TAG, "FileNotFoundException", e);
         } catch (IOException e) {
-            TudouLog.e(TAG, "IOException", e);
+            Log.e(TAG, "IOException", e);
         }
         
         return content;
@@ -128,9 +128,9 @@ public class PropertiesActivity extends DebugActivity {
             w.flush();
             ToastUtil.toast(this, "properties saved", Toast.LENGTH_LONG);
         } catch (FileNotFoundException e) {
-            TudouLog.e(TAG, "FileNotFoundException", e);
+            Log.e(TAG, "FileNotFoundException", e);
         } catch (IOException e) {
-            TudouLog.e(TAG, "IOException", e);
+            Log.e(TAG, "IOException", e);
         }    
     }
     
@@ -152,7 +152,7 @@ public class PropertiesActivity extends DebugActivity {
         @Override
         public String getProperty(String name) {
             String p = super.getProperty(name);
-            TudouLog.d(TAG, "getProperty(), name: " + name + " property: " + p);
+            Log.d(TAG, "getProperty(), name: " + name + " property: " + p);
             return p;
         }
         

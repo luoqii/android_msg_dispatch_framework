@@ -4,7 +4,7 @@ package com.tudou.android.fw.msgdispatch;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 /**
  * utils to aid msg dispatching, usually you should use this utils instead of
@@ -52,7 +52,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public boolean rootCanHandle(View sender, IMsg msg) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, sender.getClass().getSimpleName()
+            Log.d(TAG, sender.getClass().getSimpleName()
                     + " ask root if it can handle this msg. msg: " + msg);
         }
         
@@ -71,7 +71,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public boolean canHandle(ViewGroup group, final IMsg msg) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, group.getClass().getSimpleName()
+            Log.d(TAG, group.getClass().getSimpleName()
                     + " ask who can handle this msg. msg: "
                     + msg);
         }
@@ -97,7 +97,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public boolean rootHandle(final View sender, final IMsg msg, boolean strictMode) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, sender.getClass().getSimpleName()
+            Log.d(TAG, sender.getClass().getSimpleName()
                     + " request root handle. msg: "
                     + msg);
         }
@@ -119,7 +119,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public boolean rootHandle(final View sender, final IMsg msg) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, sender.getClass().getSimpleName()
+            Log.d(TAG, sender.getClass().getSimpleName()
                     + " request root handle. msg: "
                     + msg);
         }
@@ -140,7 +140,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public  boolean rootDispatch(RootMsgHandler root, IMsg msg, int direction) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, root.getClass().getSimpleName() + "@" + root.hashCode()
+            Log.d(TAG, root.getClass().getSimpleName() + "@" + root.hashCode()
                     + " request dispatch this msg in view hierarchy. msg: "
                     + msg);
         }
@@ -162,7 +162,7 @@ public class MsgDispatcher implements MsgDispatcherPolicy {
     public boolean dispatch(ViewGroup group, final IMsg msg) {
         if (DEBUG_MSG_ORIGINATOR && 
                 (!LIMIT_IMAGE_MSG || !filter(msg))) {
-            TudouLog.d(TAG, group.getClass().getSimpleName() + " dispatch this msg. msg: " + msg);
+            Log.d(TAG, group.getClass().getSimpleName() + " dispatch this msg. msg: " + msg);
         }
         
         return mPolicy.dispatch(group, msg);

@@ -6,7 +6,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 public class WebViewCompat {
     private static final String TAG = WebViewCompat.class.getSimpleName();
@@ -40,7 +40,7 @@ public class WebViewCompat {
     		try {
     			setting.setJavaScriptEnabled(flag);
     		} catch (Exception e) {
-    			TudouLog.w("WebViewCompat", "Error in setJavaScriptEnabled: "+e);
+    			Log.w("WebViewCompat", "Error in setJavaScriptEnabled: "+e);
     		}
     	}
     }
@@ -58,7 +58,7 @@ public class WebViewCompat {
     		try {
     			webview.onResume();
     		} catch (Exception e) {
-    			TudouLog.w("WebViewCompat", "Error in onResume: "+e);
+    			Log.w("WebViewCompat", "Error in onResume: "+e);
     		}
     	}
     }
@@ -76,7 +76,7 @@ public class WebViewCompat {
     		try {
     			webview.onPause();
     		} catch (Exception e) {
-    			TudouLog.w("WebViewCompat", "Error in onPause: "+e);
+    			Log.w("WebViewCompat", "Error in onPause: "+e);
     		}
     	}
     }
@@ -94,7 +94,7 @@ public class WebViewCompat {
     		try {
     			setting.setLoadWithOverviewMode(flag);
     		} catch (Exception e) {
-    			TudouLog.w("WebViewCompat", "Error in setLoadWithOverviewMode: "+e);
+    			Log.w("WebViewCompat", "Error in setLoadWithOverviewMode: "+e);
     		}
     	}
     }

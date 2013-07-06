@@ -14,7 +14,7 @@ import com.tudou.android.fw.msgdispatch.IMsg;
 import com.tudou.android.fw.msgdispatch.MsgHandler;
 import com.tudou.android.fw.msgdispatch.RootMsgHandler;
 import com.tudou.android.fw.msgdispatch.RootMsgHandler.OnUnhandledListener;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 import java.util.Map;
 
@@ -46,7 +46,7 @@ public abstract class AbsPageActivity extends TudouActivity {
             @Override
             public void onUnhandledMsg(IMsg msg) {
                 if (DEBUG_MSG_DISPATCH) {
-                    TudouLog.d(TAG, "onUnhandledMsg(). msg: " + msg);
+                    Log.d(TAG, "onUnhandledMsg(). msg: " + msg);
                 }
                 
                 if (IMsg.CATEGORY_REMOTE == msg.getCategory()) {
@@ -153,7 +153,7 @@ public abstract class AbsPageActivity extends TudouActivity {
             } else if (msgHandlerView instanceof MsgHandler ||
                 (msgHandlerView.getClass().isAnnotationPresent(
                         com.tudou.android.fw.msgdispatch.annotation.MsgHandler.class))){
-                TudouLog.w(TAG, message);
+                Log.w(TAG, message);
             }
         }
     }
@@ -202,7 +202,7 @@ public abstract class AbsPageActivity extends TudouActivity {
         }
         
         if (DEBUG_MSG_DISPATCH) {
-            TudouLog.d(getTag(), "dispatchMsg(). msg: " + msg);
+            Log.d(getTag(), "dispatchMsg(). msg: " + msg);
         }
         
         mRootMsgHandler.handle(msg, MsgHandler.PARENT_2_CHILD);

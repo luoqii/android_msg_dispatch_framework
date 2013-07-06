@@ -13,7 +13,7 @@ import com.tudou.android.fw.model.ambassador.AmbassadorFactory.IAmbassadorFactor
 import com.tudou.android.fw.model.ambassador.AmbassadorFactory.Policy;
 import com.tudou.android.fw.model.ambassador.IAmbassador;
 import com.tudou.android.fw.model.task.TaskFactory;
-import com.tudou.android.fw.util.TudouLog;
+import com.tudou.android.fw.util.Log;
 
 
 public class DemoApplication extends App {
@@ -29,16 +29,16 @@ public class DemoApplication extends App {
         
         // TODO need a better solution for this. bysong@tudou.com
         final int memory = getResources().getInteger(R.integer.lib_app_memory);
-        TudouLog.d(TAG, "memory heap size: " + memory * 1024 * 1024);
+        Log.d(TAG, "memory heap size: " + memory * 1024 * 1024);
     }
     
     private void initLog() {
-        TudouLog.setLog(true);
-        TudouLog.setLog2File(true);
-        TudouLog.setRootTag(getLogTag());
-        TudouLog.init(mSpec.getExtLogDirPath(), "log");
+        Log.setLog(true);
+        Log.setLog2File(true);
+        Log.setRootTag(getLogTag());
+        Log.init(mSpec.getExtLogDirPath(), "log");
 
-        TudouLog.i(TAG, "Hi, world.");     
+        Log.i(TAG, "Hi, world.");     
     }
     
     @Override

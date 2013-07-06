@@ -11,10 +11,10 @@ public class ThreadUtil {
      */
     public static void sleep(int millis){
         try {
-            TudouLog.d(TAG, "sleep " + millis);
+            Log.d(TAG, "sleep " + millis);
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            TudouLog.e(TAG, "InterruptedException", e);
+            Log.e(TAG, "InterruptedException", e);
         }
     }
 }
