@@ -45,6 +45,7 @@ public class DemoCategoryPage extends BaseComponent implements MsgHandler {
         setBackgroundColor(Color.BLUE);
         inflate(getContext(), R.layout.lib_demo_category_page_content, this);
         mVidoesListView = (ListView)findViewById(R.id.videos);
+        mVidoesListView.setEmptyView(findViewById(android.R.id.empty));
         mVidoesListView.setOnItemClickListener(new OnItemClickListener() {
 
             @Override

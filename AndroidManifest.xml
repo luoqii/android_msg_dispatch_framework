@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="0.0.1" >
 
-    <uses-sdk android:minSdkVersion="4" />
+    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="21"/>
 
     <!-- log -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,7 +14,6 @@
 
     <application
         android:name="com.tudou.android.fw.DemoApplication"
-        android:debuggable="true"
         android:label="@string/lib_app_name" >
         <activity
             android:name="com.tudou.android.fw.activity.FWApiDemos"
